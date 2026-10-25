@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Quebra-Caso: Mistério da Floresta</title>
+<link rel="stylesheet" href="../assets/css/index.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="shortcut icon" href="img/Fundo Quebra caso.jpeg" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="frame">
+  <div class="bg-deco">
+    <div class="stars"></div>
+    <div class="tree t1"></div><div class="tree t2"></div><div class="tree t3"></div><div class="tree t4"></div>
+  </div>
+ 
+  <!-- MENU -->
+  <section class="screen active" data-screen="menu">
+    <div class="center-col">
+      <h1 class="title-xl" style="font-family:Verdana, Geneva, Tahoma, sans-serif;">🔎 Quebra&nbsp;-&nbsp;Caso 🔎</h1>
+      <p class="subtitle">Mistério da Floresta</p>
+      <div class="divider"></div>
+      <div class="menu-buttons">
+        <button class="btn gold" onclick="goTo('story')">🔍 Jogar</button>
+        <button class="btn" onclick="goTo('options')">⚙️ Opções</button>
+        <button class="btn" onclick="doExit()">🚪 Sair</button>
+      </div>
+    </div>
+    <img id="personagem" src="/assets/img/quebra-casoper-removebg-preview.png" alt="Personagem do Detetive">
+  </section> 
+
+   <!-- OPTIONS -->
+  <section class="screen" data-screen="options">
+    <div class="topbar"><button class="iconbtn" onclick="goBack()">←</button></div>
+    <div class="center-col">
+      <h1 class="title-xl" style="font-size:clamp(1.4rem,4vw,2rem);">⚙️ Opções</h1>
+      <div class="divider"></div>
+      <div class="menu-buttons">
+        <button class="btn" id="btn-tela" onclick="toggleOpt('tela')">🖥️ Tela: Cheia</button>
+        <button class="btn" id="btn-som" onclick="toggleOpt('som')">🔊 Som: Ligado</button>
+        <button class="btn" onclick="goBack()">← Voltar</button>
+      </div>
+    </div>
+  </section> 
+
+   <!-- STORY INTRO  -->
+  <section class="screen" data-screen="story">
+    <div class="topbar"><button class="iconbtn" onclick="goBack()">←</button></div>
+    <h1 class="title-xl" style="font-size:clamp(1.4rem,4vw,2.1rem);">Prepare-se para a aventura!</h1>
+    <p class="subtitle">A história está apenas começando...</p>
+    <div class="cols c3 scroll-area" style="margin-top:12px;">
+      <div class="panel">
+        <h3>O começo da história</h3>
+        <p>A turma do 5º ano está pronta para uma emocionante excursão na Floresta dos Pinheiros!</p>
+        <p>Entre trilhas, riachos e grandes árvores, eles vão aprender sobre a natureza e viver momentos inesquecíveis.</p>
+        <p>Mas nem tudo será tão simples... alguém não quer que essa aventura aconteça.</p>
+        <p style="color:var(--purple-glow);"><b>Você está pronto para desvendar esse mistério?</b></p>
+      </div>
+    <div class="story-img">
+  <img
+    src="/assets/img/ChatGPT Image 25 de set. de 2026, 00_04_47.png" 
+    alt="Ilustração da aventura na Floresta dos Pinheiros"
+  >
+</div>
+      <div class="panel">
+        <h3>Seus objetivos</h3>
+        <ul>
+          <li>🔍 Explorar a floresta e seguir as pistas.</li>
+          <li>🧠 Resolver desafios usando lógica.</li>
+          <li>💜 Demonstrar empatia e fazer novas amizades.</li>
+          <li>📖 Descobrir o segredo do Sr. Silvestre e encontrar o diário perdido.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-row"><button class="btn gold" onclick="goTo('phaseSelect')">🚪 Iniciar a aventura!</button></div>
+  </section> 
+
+  <!-- PHASE SELECT -->
+  <section class="screen" data-screen="phaseSelect">
+    <div class="topbar"><button class="iconbtn" onclick="goTo('menu')">←</button></div>
+    <h1 class="title-xl" style="font-size:clamp(1.5rem,4.4vw,2.2rem);">Quebra-Caso</h1>
+    <p class="subtitle">Mistério da Floresta</p>
+    <div class="phase-grid" id="phase-grid"></div>
+    <div class="footer-row">
+    </div>
+  </section>
+
+  <!-- PHASE 1 -->
+  <section class="screen" data-screen="phase1">
+    <div class="phase-head">
+      <button class="iconbtn" onclick="goTo('phaseSelect')">←</button>
+      <div><h2>Fase 1</h2><p class="sub">Estrada Interrompida</p></div>
+      <div class="objective"><b>Objetivo</b>Organize as ações na ordem correta para liberar a estrada e o ônibus seguir viagem!</div>
+    </div>
+    <div class="phase-body">
+      <div class="panel scroll-area">
+        <h3>O enredo</h3>
+        <p>O ônibus escolar ficou atolado a caminho do acampamento. O Sr. Silvestre bloqueou a passagem com galhos, troncos, pedras e lama.</p>
+        <h3>O que deve ser feito</h3>
+        <ul>
+          <li><b>Decomposição:</b> divida o problema em partes menores.</li>
+          <li><b>Algoritmo:</b> organize as ações na ordem correta para liberar a passagem.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="road-strip">
+          <div class="obst"><span>🌿</span><span class="lbl">Galhos</span></div>
+          <div class="obst"><span>🪵</span><span class="lbl">Troncos</span></div>
+          <div class="obst"><span>🪨</span><span class="lbl">Pedras</span></div>
+          <div class="obst"><span>🕳️</span><span class="lbl">Buracos c/ lama</span></div>
+          <div class="obst"><span>🚌</span><span class="lbl">Ônibus</span></div>
+        </div>
+        <p class="subtitle" style="text-align:left; color:var(--text-dim); font-size:.8rem;">Arraste os cartões para a ordem correta:</p>
+        <div class="slots-row" id="p1-slots"></div>
+        <p class="subtitle" style="text-align:left; color:var(--text-dim); font-size:.8rem;">Ações disponíveis:</p>
+        <div class="pool" id="p1-pool"></div>
+        <div class="hintbar">
+          <button class="btn small" onclick="useHint(1)">💡 Pista (<span class="count" id="p1-hints">3</span>)</button>
+          <button class="btn small gold" onclick="checkPhase1()">✅ Verificar</button>
+        </div>
+        <div class="feedback" id="p1-feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 1 WIN -->
+  <section class="screen" data-screen="phase1win">  
+<section class="screen active" data-screen="phase1win">
+  <div class="center-col">
+      <img src="../assets/img/Fase_vitoria1.png" alt="onibus liberado" style="width:100%; max-width:750px;">
+    <h1 class="title-xl" style="font-size:clamp(1.3rem,3.6vw,1.9rem);">Estrada liberada!</h1>
+    <p class="subtitle">O ônibus pôde seguir viagem até o acampamento.</p>
+    <button class="btn gold" onclick="finishPhase(1)">Continuar →</button>
+  </div>
+</section>
+  <div class="toast" id="toast"></div>
+  </section>
+
+  <!-- PHASE 2 -->
+  <section class="screen" data-screen="phase2">
+    <div class="phase-head">
+      <button class="iconbtn" onclick="goTo('phaseSelect')">←</button>
+      <div><h2>Fase 2</h2><p class="sub">O Fantasma</p></div>
+      <div class="objective"><b>Objetivo</b>Use as regras do Caderno de Pistas para seguir o caminho certo e encontrar a lupa do Detetive Mirim!</div>
+    </div>
+    <div class="phase-body">
+      <div class="card-note scroll-area">
+        <h3 style="margin-top:0; font-family:var(--font-title);">📖 Caderno de Pistas</h3>
+        <p>👣 SE a pegada for de bota, <b>ENTÃO</b> siga em frente.</p>
+        <p>🎀 SE houver fita amarela, <b>ENTÃO</b> vire à esquerda.</p>
+        <p>🪵 SE encontrar um galho quebrado, <b>ENTÃO</b> vire à direita.</p>
+        <p>🦉 SE ouvir o assobio da coruja, <b>ENTÃO</b> pare e observe.</p>
+      </div>
+      <div>
+        <div class="trail-progress" id="p2-progress"></div>
+        <div class="clue-box">
+          <div class="ic" id="p2-clue-icon">👣</div>
+          <div class="txt"><b id="p2-clue-label">Você encontra uma pista...</b><span>O que o Detetive Mirim deve fazer?</span></div>
+        </div>
+        <div class="action-choices">
+          <button class="btn" onclick="p2answer('frente')">⬆️ Seguir em frente</button>
+          <button class="btn" onclick="p2answer('esquerda')">⬅️ Virar à esquerda</button>
+          <button class="btn" onclick="p2answer('direita')">➡️ Virar à direita</button>
+          <button class="btn" onclick="p2answer('observar')">👁️ Observar</button>
+        </div>
+        <div class="feedback" id="p2-feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 2 WIN -->
+  <section class="screen" data-screen="phase2win">
+    <div class="center-col">
+      <div class="story-img" style="width:100%; max-width:420px;">🔍🌲🏕️</div>
+      <h1 class="title-xl" style="font-size:clamp(1.3rem,3.6vw,1.9rem);">Lupa encontrada!</h1>
+      <p class="subtitle">O caminho até o acampamento está livre outra vez.</p>
+      <button class="btn gold" onclick="finishPhase(2)">Continuar →</button>
+    </div>
+  </section>
+
+  <!-- PHASE 3 -->
+  <section class="screen" data-screen="phase3">
+    <div class="phase-head">
+      <button class="iconbtn" onclick="goTo('phaseSelect')">←</button>
+      <div><h2>Fase 3</h2><p class="sub">Investigação da Cabana</p></div>
+      <div class="objective"><b>Objetivo</b>Organize os itens na ordem correta seguindo as pistas do Detetive Mirim!</div>
+    </div>
+    <div class="phase-body">
+      <div class="panel scroll-area">
+        <h3>Pistas do caderno</h3>
+        <ul>
+          <li>☀️ O sol vem antes da 🌲 floresta.</li>
+          <li>🌊 O lago vem antes da 🦉 coruja.</li>
+          <li>🧭 A bússola nunca fica na última posição.</li>
+          <li>🌲 A floresta vem antes da 🧭 bússola.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="subtitle" style="text-align:left; color:var(--text-dim); font-size:.8rem;">Organize os itens na ordem correta:</p>
+        <div class="slots-row" id="p3-slots"></div>
+        <div class="pool" id="p3-pool"></div>
+        <div class="hintbar">
+          <button class="btn small" onclick="useHint(3)">💡 Pista (<span class="count" id="p3-hints">3</span>)</button>
+          <button class="btn small gold" onclick="checkPhase3()">✅ Verificar ordem</button>
+        </div>
+        <div class="feedback" id="p3-feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHASE 3 WIN -->
+  <section class="screen" data-screen="phase3win">
+    <div class="center-col">
+      <div class="story-img" style="width:100%; max-width:420px;">🗝️📖🕯️</div>
+      <h1 class="title-xl" style="font-size:clamp(1.3rem,3.6vw,1.9rem);">Gaveta destrancada!</h1>
+      <p class="subtitle">Vocês encontraram mais pistas sobre o Sr. Silvestre.</p>
+      <button class="btn gold" onclick="finishPhase(3)">Continuar →</button>
+    </div>
+  </section>
+
+  <!-- PHASE 4 -->
+  <section class="screen" data-screen="phase4">
+    <div class="phase-head">
+      <button class="iconbtn" onclick="goTo('phaseSelect')">←</button>
+      <div><h2>Fase 4</h2><p class="sub">A Grande Busca</p></div>
+      <div class="objective"><b>Dica do velho</b>"A floresta guarda segredos para quem observa com atenção."</div>
+    </div>
+    <div class="phase-body">
+      <div class="panel scroll-area">
+        <h3>Energia</h3>
+        <div class="energy-bar" id="p4-energy"></div>
+        <p>Caminhos errados consomem energia. Se ela acabar, vocês voltam ao início.</p>
+        <h3>Legenda</h3>
+        <ul>
+          <li>🟢 Caminho seguro</li>
+          <li>🔴 Beco sem saída</li>
+          <li>🔮 Memória do velho (pista)</li>
+          <li>🏆 Tesouro / diário</li>
+        </ul>
+      </div>
+      <div>
+        <div class="map-wrap" id="p4-map"><svg id="p4-svg"></svg></div>
+        <div class="map-msg" id="p4-msg">Clique em um nó conectado para se mover.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VICTORY -->
+  <section class="screen" data-screen="victory">
+    <div class="center-col scroll-area">
+      <h1 class="title-xl" style="font-size:clamp(1.6rem,4.6vw,2.3rem);">Parabéns!</h1>
+      <p class="subtitle">Você concluiu a Grande Busca! Uma amizade nasceu. Um legado foi salvo.</p>
+      <div class="cols c2" style="margin-top:14px; text-align:left;">
+        <div class="panel">
+          <h3>Você foi incrível!</h3>
+          <ul class="checklist">
+            <li>Desobstruiu o caminho</li>
+            <li>Seguiu as pistas com lógica</li>
+            <li>Desvendou os segredos da cabana</li>
+            <li>Encontrou o diário perdido</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Vitória de todos!</h3>
+          <p>O Sr. Silvestre não está mais sozinho. Ele encontrou um novo propósito: ensinar, proteger e compartilhar seu conhecimento.</p>
+          <div class="badge">🛡️</div>
+        </div>
+      </div>
+      <button class="btn gold" style="margin-top:16px;" onclick="goTo('epilogue')">Continuar →</button>
+    </div>
+  </section>
+
+  <!-- EPILOGUE -->
+  <section class="screen" data-screen="epilogue">
+    <div class="topbar"><button class="iconbtn" onclick="goBack()">←</button></div>
+    <h1 class="title-xl" style="font-size:clamp(1.4rem,3.8vw,2rem);">Desfecho</h1>
+    <p class="subtitle">O Guardião Tecnológico</p>
+    <div class="cols c2 scroll-area" style="margin-top:10px;">
+      <div class="panel">
+        <h3>O impacto pedagógico</h3>
+        <p>Com o apoio da escola, Silvestre aprende a usar ferramentas digitais para preservar as memórias do seu avô.</p>
+        <h3>O novo legado</h3>
+        <ul>
+          <li><b>Líder de Escuradas:</b> ensina às crianças toda a sua sabedoria de campo.</li>
+          <li><b>Conselho Híbrido:</b> ensina os alunos a transformarem dados coletados em rotinas digitais reais de preservação.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Museu digital da floresta</h3>
+        <div class="epi-grid">
+          <button class="btn small epi-btn" onclick="epiInfo('diarios')">📖 Diários</button>
+          <button class="btn small epi-btn" onclick="epiInfo('mapas')">🗺️ Mapas</button>
+          <button class="btn small epi-btn" onclick="epiInfo('especies')">🍃 Espécies</button>
+          <button class="btn small epi-btn" onclick="epiInfo('historias')">👥 Histórias</button>
+        </div>
+        <div class="epi-info" id="epi-info"></div>
+      </div>
+    </div>
+    <div class="footer-row"><button class="btn" onclick="goTo('credits')">Ver créditos →</button></div>
+  </section>
+
+  <!-- CREDITS -->
+  <section class="screen" data-screen="credits">
+    <div class="center-col">
+      <p class="quote">Nenhum problema é grande demais quando dividido em partes, e o conhecimento do passado se torna a tecnologia do futuro quando conectamos gerações com empatia e respeito.</p>
+      <div class="divider"></div>
+      <h1 class="title-xl" style="font-size:clamp(1.4rem,3.8vw,2rem);">Quebra-Caso</h1>
+      <p class="subtitle">Obrigado pela atenção!</p>
+      <p style="color:var(--text-dim); font-size:.78rem;">Créditos: Alexandre Fischer Barbosa, Gustavo Henrique Pereira Lima, Igor Damacena, Igor Kenji Tavares, João Paulo Alexandre Nascimento e Vitor Hugo Ataliba</p>
+      <button class="btn gold" onclick="restartGame()">🔄 Jogar novamente</button>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+</div>
+<script src="/assets/js/scripts.js"></script>
+
+</body>
+</html>
